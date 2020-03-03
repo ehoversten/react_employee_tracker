@@ -7,6 +7,7 @@ function Nav() {
                 <h1>Welcome to the Employee Manager</h1>
                 <p>Search by last name to filter results</p>
             </div>
+            <br/>
         </div>
     )
 }

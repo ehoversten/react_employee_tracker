@@ -5,14 +5,16 @@ function Search(props) {
     return (
         <div className="form-search">
             <form>
-                <label htmlFor="search-term">Search by Last Name:</label>
+                <label htmlFor="search">Search by Last Name:</label>
                 <input 
                     type="text" 
-                    name="search-term"
-                    handleChange={props.handleInputChange}
+                    name="search"
+                    onChange={props.handleInputChange}
+                    value={props.search}
                 />
                 <button type="submit" onClick={props.handleFormSubmit}>Search</button>
             </form>
+            <br/>
         </div>
     )
 }

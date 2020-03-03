@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EmployeeList from '../EmployeeList';
+import Search from '../Search';
 import axios from 'axios';
 
 
@@ -29,9 +30,30 @@ class Employee extends Component {
             })
     }
 
+    handleInputChange = (event) => {
+        let name = event.target.name;
+        let value = event.target.value;
+        // ** Testing ** // Log returned values
+        console.log(name, value);
+ 
+        this.setState({
+          [name]: value
+        });
+    }
+
+    handleFormSubmit = event => {
+        event.preventDefault();
+        axios.get()
+    }
+
     render() {
         return (
           <div className="employee-container">
+            <Search 
+                search={this.state.search}
+                handleInputChange={this.handleInputChange}
+                handleFormSubmit={this.handleFormSubmit}
+            />
             <hr />
             <h3>Employee Roster:</h3>
             <hr />
