@@ -43,7 +43,16 @@ class Employee extends Component {
 
     handleFormSubmit = event => {
         event.preventDefault();
-        axios.get()
+        axios.get("https://jsonplaceholder.typicode.com/users?id=5")
+            .then(res => {
+                this.setState({
+                    employees: res.data
+                })
+            }).catch(err => {
+                if(err) {
+                    console.log(err);
+                }
+            });
     }
 
     render() {
