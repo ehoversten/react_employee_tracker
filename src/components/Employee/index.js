@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmployeeList from '../EmployeeList';
 import axios from 'axios';
 
 
@@ -17,6 +18,7 @@ class Employee extends Component {
         let url = "https://jsonplaceholder.typicode.com/users";
         axios.get(url)
             .then(res => {
+                // test to see what data we get back
                 console.log(res.data);
                 // update state with User data
                 this.setState({
@@ -29,12 +31,13 @@ class Employee extends Component {
 
     render() {
         return (
-            <div className="employee-container">
-            <hr/>
-                <h3>Employee Roster:</h3>
-                <hr/>
-            </div>
-        )
+          <div className="employee-container">
+            <hr />
+            <h3>Employee Roster:</h3>
+            <hr />
+            <EmployeeList employees={this.state.employees} />
+          </div>
+        );
     }
 
 }
