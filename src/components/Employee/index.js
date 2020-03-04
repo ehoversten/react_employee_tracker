@@ -16,14 +16,19 @@ class Employee extends Component {
 
     // When this component mounts, search the Placeholder API for User data
     componentDidMount() {
-        let url = "https://jsonplaceholder.typicode.com/users";
+        // let url = "https://jsonplaceholder.typicode.com/users";
+        let url = "https://randomuser.me/api/?results=5";
         axios.get(url)
             .then(res => {
                 // test to see what data we get back
-                console.log(res.data);
+                console.log("Data: ");
+                let data = res.data.results;
+                console.log(data);
+                console.log(typeof data);
+
                 // update state with User data
                 this.setState({
-                    employees: res.data
+                    employees: data
                 })
             }).catch(err => {
                 if(err) console.log(err);
@@ -45,8 +50,14 @@ class Employee extends Component {
         event.preventDefault();
         axios.get("https://jsonplaceholder.typicode.com/users?id=5")
             .then(res => {
+                console.log("Data: ")
+                // console.log(res.data.results.results);
+                let data = res.data.results
+                console.log(data);
+                console.log(typeof data);
+
                 this.setState({
-                    employees: res.data
+                    employees: data
                 })
             }).catch(err => {
                 if(err) {
