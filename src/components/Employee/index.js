@@ -26,7 +26,8 @@ class Employee extends Component {
 
                 // update state with User data
                 this.setState({
-                    employees: data
+                    employees: data,
+                    filtered: data
                 })
             }).catch(err => {
                 if(err) console.log(err);
@@ -39,21 +40,13 @@ class Employee extends Component {
         // ** Testing ** // Log returned values
         console.log(name, value);
 
-        let regex = new RegExp('^' + value + '\w+' + '/gi');
-        console.log(`RegEx: ${regex}`);
-
-        let emps = this.state.employees.filter(user => {
-            let lower = value.toLowerCase();
-            console.log(lower);
-            let data = user.name.last[0].toLowerCase() === lower;
-            console.log(data);
-            return data;
-        })
-        console.log(`Array: ${emps}`);
+        let filteredEmp = this.state.employees.filter(user => {
+          return user.name.last.indexOf(this.state.search.toLowerCase()) !== -1;
+        });
 
         this.setState({
           [name]: value,
-          filtered: emps
+          filtered: filteredEmp
         });
     }
 
@@ -63,6 +56,13 @@ class Employee extends Component {
     }
 
     render() {
+        let filteredEmp = this.state.employees.filter(user => {
+          return user.name.last.indexOf(this.state.search.toLowerCase()) !== -1;
+        });
+
+        console.log("**********");
+        console.log(filteredEmp);
+
         return (
           <div className="employee-container">
             <Search 
@@ -73,8 +73,11 @@ class Employee extends Component {
             <hr />
             <h3>Employee Roster:</h3>
             <hr />
+            { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
-            {/* <EmployeeList employees={this.state.employees} /> */}
+            :
+            <EmployeeList employees={this.state.employees} />
+            }
           </div>
         );
     }
