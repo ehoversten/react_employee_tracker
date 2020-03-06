@@ -10,21 +10,19 @@ class Employee extends Component {
         super(props);
         this.state = {
             search: '',
-            employees: []
+            employees: [],
+            filtered: []
         }
     }
 
     // When this component mounts, search the Placeholder API for User data
     componentDidMount() {
-        // let url = "https://jsonplaceholder.typicode.com/users";
-        let url = "https://randomuser.me/api/?results=5";
+        let url = "https://randomuser.me/api/?results=10";
         axios.get(url)
             .then(res => {
                 // test to see what data we get back
-                console.log("Data: ");
+                // console.log("Data: ");
                 let data = res.data.results;
-                console.log(data);
-                console.log(typeof data);
 
                 // update state with User data
                 this.setState({
@@ -40,30 +38,25 @@ class Employee extends Component {
         let value = event.target.value;
         // ** Testing ** // Log returned values
         console.log(name, value);
+
+        let emps = this.state.employees.filter(user => {
+            return user.name.last.match(`/\${this.state.search}\w+/gi`);
+        })
+
+        console.log(`Array: ${emps}`);
+
  
         this.setState({
-          [name]: value
+          [name]: value,
+          filtered: emps
         });
+
+
     }
 
     handleFormSubmit = event => {
         event.preventDefault();
-        axios.get("https://jsonplaceholder.typicode.com/users?id=5")
-            .then(res => {
-                console.log("Data: ")
-                // console.log(res.data.results.results);
-                let data = res.data.results
-                console.log(data);
-                console.log(typeof data);
-
-                this.setState({
-                    employees: data
-                })
-            }).catch(err => {
-                if(err) {
-                    console.log(err);
-                }
-            });
+        console.log("Clicked");
     }
 
     render() {
@@ -77,7 +70,8 @@ class Employee extends Component {
             <hr />
             <h3>Employee Roster:</h3>
             <hr />
-            <EmployeeList employees={this.state.employees} />
+            <EmployeeList employees={this.state.filtered} />
+            {/* <EmployeeList employees={this.state.employees} /> */}
           </div>
         );
     }
