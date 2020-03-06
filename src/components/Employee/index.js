@@ -17,7 +17,7 @@ class Employee extends Component {
 
     // When this component mounts, search the Placeholder API for User data
     componentDidMount() {
-        let url = "https://randomuser.me/api/?results=10";
+        let url = "https://randomuser.me/api/?results=100";
         axios.get(url)
             .then(res => {
                 // test to see what data we get back
@@ -39,19 +39,22 @@ class Employee extends Component {
         // ** Testing ** // Log returned values
         console.log(name, value);
 
-        let emps = this.state.employees.filter(user => {
-            return user.name.last.match(`/\${this.state.search}\w+/gi`);
-        })
+        let regex = new RegExp('^' + value + '\w+' + '/gi');
+        console.log(`RegEx: ${regex}`);
 
+        let emps = this.state.employees.filter(user => {
+            let lower = value.toLowerCase();
+            console.log(lower);
+            let data = user.name.last[0].toLowerCase() === lower;
+            console.log(data);
+            return data;
+        })
         console.log(`Array: ${emps}`);
 
- 
         this.setState({
           [name]: value,
           filtered: emps
         });
-
-
     }
 
     handleFormSubmit = event => {
