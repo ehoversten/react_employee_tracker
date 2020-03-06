@@ -12,7 +12,6 @@ function Search(props) {
                     onChange={props.handleInputChange}
                     value={props.search}
                 />
-                <button type="submit" onClick={props.handleFormSubmit}>Search</button>
             </form>
             <br/>
         </div>

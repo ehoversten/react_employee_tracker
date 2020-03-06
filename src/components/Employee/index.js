@@ -41,7 +41,8 @@ class Employee extends Component {
         console.log(name, value);
 
         let filteredEmp = this.state.employees.filter(user => {
-          return user.name.last.indexOf(value.toLowerCase()) !== -1;
+        //   return user.name.last.indexOf(value.toLowerCase()) !== -1;
+          return user.name.last.toLowerCase().indexOf(value.toLowerCase()) == 0;
         });
 
         this.setState({
@@ -50,10 +51,10 @@ class Employee extends Component {
         });
     }
 
-    handleFormSubmit = event => {
-        event.preventDefault();
-        console.log("Clicked");
-    }
+    // handleFormSubmit = event => {
+    //     event.preventDefault();
+    //     console.log("Clicked");
+    // }
 
     render() {
         return (
