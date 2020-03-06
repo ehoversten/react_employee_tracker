@@ -3,7 +3,6 @@ import React from 'react';
 
 function EmployeeList(props) {
 
-
     return (
         <div className="employee-list">
             <ul className="list-group">

@@ -41,7 +41,7 @@ class Employee extends Component {
         console.log(name, value);
 
         let filteredEmp = this.state.employees.filter(user => {
-          return user.name.last.indexOf(this.state.search.toLowerCase()) !== -1;
+          return user.name.last.indexOf(value.toLowerCase()) !== -1;
         });
 
         this.setState({
@@ -56,13 +56,6 @@ class Employee extends Component {
     }
 
     render() {
-        let filteredEmp = this.state.employees.filter(user => {
-          return user.name.last.indexOf(this.state.search.toLowerCase()) !== -1;
-        });
-
-        console.log("**********");
-        console.log(filteredEmp);
-
         return (
           <div className="employee-container">
             <Search 
@@ -72,6 +65,7 @@ class Employee extends Component {
             />
             <hr />
             <h3>Employee Roster:</h3>
+            <h5>Number: {this.state.filtered.length}</h5>
             <hr />
             { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
@@ -81,20 +75,6 @@ class Employee extends Component {
           </div>
         );
     }
-
 }
 
 export default Employee;
-
-
-
-// }
-//     "id": 1,
-//     "name": "Leanne Graham",
-//     "username": "Bret",
-//     "email": "Sincere@april.biz",
-//     "address": { 5 items },
-//     "phone": "1-770-736-8031 x56442",
-//     "website": "hildegard.org",
-//     "company": { 3 items }
-// }
