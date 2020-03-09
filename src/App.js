@@ -1,14 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link, NavLink } from 'react-router-dom';
 import './App.css';
 import Nav from './components/Nav';
+import Display from './components/Display';
 import Employee from './components/Employee';
 
 function App() {
   return (
     <div className="App">
       <Nav />
-
-      <Employee />
+      <Route exact path='/' component={Display} />
+      <Route exact path='/employees' component={Employee} />
     </div>
   );
 }
