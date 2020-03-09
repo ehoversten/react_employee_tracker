@@ -59,6 +59,7 @@ class Employee extends Component {
     render() {
         return (
           <div className="employee-container">
+              
             <Search 
                 search={this.state.search}
                 handleInputChange={this.handleInputChange}
