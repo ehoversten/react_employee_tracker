@@ -1,15 +1,20 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Nav() {
     return (
-      <div className="navigation">
-        <div className="nav-container">
-          <NavLink to="/">Home</NavLink>
-          <NavLink to="/employees">Directory</NavLink>
+      <nav className="navbar navbar-dark bg-dark">
+        <a className="navbar-brand" href="#">Navbar</a>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+            <ul className="navbar-nav">
+                <NavLink to="/" className="nav-item nav-link">Home</NavLink>
+                <NavLink to="/employees" className="nav-item nav-link">Directory</NavLink>
+            </ul>
         </div>
-        <br />
-      </div>
+      </nav>
     );
 }
 

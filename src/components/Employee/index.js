@@ -42,7 +42,7 @@ class Employee extends Component {
 
         let filteredEmp = this.state.employees.filter(user => {
         //   return user.name.last.indexOf(value.toLowerCase()) !== -1;
-          return user.name.last.toLowerCase().indexOf(value.toLowerCase()) == 0;
+          return user.name.last.toLowerCase().indexOf(value.toLowerCase()) === 0;
         });
 
         this.setState({
@@ -59,7 +59,7 @@ class Employee extends Component {
     render() {
         return (
           <div className="employee-container">
-              
+
             <Search 
                 search={this.state.search}
                 handleInputChange={this.handleInputChange}

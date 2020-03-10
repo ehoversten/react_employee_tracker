@@ -2,7 +2,7 @@ import React from 'react';
 
 function Display() {
     return (
-      <div className="landing">
+      <div className="container">
         <h1>Welcome to the Employee Manager</h1>
         <hr />
         <h5>
