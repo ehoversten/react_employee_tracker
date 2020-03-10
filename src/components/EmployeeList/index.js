@@ -12,18 +12,20 @@ function EmployeeList(props) {
               <th scope="col">First</th>
               <th scope="col">Last</th>
               <th scope="col">Email</th>
+              <th scope="col">City</th>
               <th scope="col">Country</th>
             </tr>
           </thead>
           <tbody>
               {props.employees.map(user => (
-                  <tr>
-                      <th scope="row" key={user.login.uuid}>#</th>
-                      <td>{user.name.first}</td>
-                      <td>{user.name.last}</td>
-                      <td>{user.email}</td>
-                      <td>{user.location.country}</td>
-                  </tr>
+                <tr key={user.login.uuid}>
+                    <th scope="row">#</th>
+                    <td>{user.name.first}</td>
+                    <td>{user.name.last}</td>
+                    <td>{user.email}</td>
+                    <td>{user.location.city}</td>
+                    <td>{user.location.country}</td>
+                </tr>
               ))}
           </tbody>
         </table>

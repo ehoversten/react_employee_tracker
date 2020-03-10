@@ -4,16 +4,25 @@ import React from 'react';
 function Search(props) {
     return (
       <div className="form-search">
-        <p>Search by last name to filter returned results</p>
-        <form>
-          <label htmlFor="search">Search Name:</label>
-          <input
-            type="text"
-            name="search"
-            onChange={props.handleInputChange}
-            value={props.search}
-          />
-        </form>
+        <div className="row justify-content-center">
+          <div className="col-3">
+            <h4>Filter Results:</h4>
+            <form>
+              <div className="form-group">
+                <label htmlFor="search">Search by Last Name:</label>
+                <input
+                  type="text"
+                  name="search"
+                  onChange={props.handleInputChange}
+                  value={props.search}
+                  className="form-control"
+                />
+              </div>
+            </form>
+
+          </div>
+        </div>
+
         <br />
       </div>
     );
