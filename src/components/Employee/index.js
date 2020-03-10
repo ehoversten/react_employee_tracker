@@ -58,7 +58,7 @@ class Employee extends Component {
 
     render() {
         return (
-          <div className="employee-container">
+          <div className="container">
 
             <Search 
                 search={this.state.search}
@@ -69,6 +69,7 @@ class Employee extends Component {
             <h3>Employee Roster:</h3>
             <h5>Number: {this.state.filtered.length}</h5>
             <hr />
+
             { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
             :
