@@ -23,12 +23,9 @@ class Employee extends Component {
                 // test to see what data we get back
                 // console.log("Data: ");
                 let data = res.data.results;
-
-                // update state with User data
-                this.setState({
-                    employees: data,
-                    filtered: data
-                })
+                console.log(data);
+                // update state with User API data
+                this.setState({ employees: data, filtered: data })
             }).catch(err => {
                 if(err) console.log(err);
             })
@@ -51,10 +48,6 @@ class Employee extends Component {
         });
     }
 
-    // handleFormSubmit = event => {
-    //     event.preventDefault();
-    //     console.log("Clicked");
-    // }
 
     render() {
         return (
@@ -70,11 +63,22 @@ class Employee extends Component {
             <h5>Number: {this.state.filtered.length}</h5>
             <hr />
 
-            { this.state.filtered.length > 0 ? 
+            <EmployeeList employees={this.state.filtered} />
+
+            {/* { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
             :
             <EmployeeList employees={this.state.employees} />
-            }
+            } */}
+
+
+            {/* Conditional Rendering  */}
+            {/* { this.state.filtered.length > 0 ? 
+            <EmployeeList employees={this.state.filtered} />
+            :
+            <EmployeeList employees={this.state.employees} />
+            } */}
+
           </div>
         );
     }
