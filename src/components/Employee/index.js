@@ -65,11 +65,11 @@ class Employee extends Component {
 
             <EmployeeList employees={this.state.filtered} />
 
-            {/* { this.state.filtered.length > 0 ? 
+            { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
             :
             <EmployeeList employees={this.state.employees} />
-            } */}
+            }
 
 
             {/* Conditional Rendering  */}
