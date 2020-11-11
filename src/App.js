@@ -9,8 +9,8 @@ function App() {
   return (
     <div className="App">
       <Nav />
-      <Route exact path='/' component={Display} />
       <Route exact path='/employees' component={Employee} />
+      <Route exact path='/' component={Display} />
     </div>
   );
 }

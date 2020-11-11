@@ -63,8 +63,6 @@ class Employee extends Component {
             <h5>Number: {this.state.filtered.length}</h5>
             <hr />
 
-            <EmployeeList employees={this.state.filtered} />
-
             { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
             :

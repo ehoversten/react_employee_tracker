@@ -6,6 +6,7 @@ function Search(props) {
       <div className="form-search">
         <div className="row justify-content-center">
           <div className="col-3">
+            <h4>Filter Results:</h4>
             <form>
               <div className="form-group">
                 <label htmlFor="search">Search by Last Name:</label>
@@ -18,8 +19,7 @@ function Search(props) {
                 />
               </div>
             </form>
-            <h4>Filter Results:</h4>
-
+            <button className="btn btn-primary">Clear Form</button>
           </div>
         </div>
 
