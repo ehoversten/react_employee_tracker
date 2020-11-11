@@ -48,35 +48,32 @@ class Employee extends Component {
         });
     }
 
+    handleClick = (event) => {
+        console.log("Clear Clicked")
+        this.setState({ search: '', filtered: this.state.employees })
+    }
+
 
     render() {
         return (
           <div className="container">
-
             <Search 
                 search={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}
+                handleClick={this.handleClick}
             />
             <hr />
             <h3>Employee Roster:</h3>
             <h5>Number: {this.state.filtered.length}</h5>
             <hr />
 
+            {/* Conditional Rendering  */}
             { this.state.filtered.length > 0 ? 
             <EmployeeList employees={this.state.filtered} />
             :
             <EmployeeList employees={this.state.employees} />
             }
-
-
-            {/* Conditional Rendering  */}
-            {/* { this.state.filtered.length > 0 ? 
-            <EmployeeList employees={this.state.filtered} />
-            :
-            <EmployeeList employees={this.state.employees} />
-            } */}
-
           </div>
         );
     }

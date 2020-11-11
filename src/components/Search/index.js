@@ -19,7 +19,7 @@ function Search(props) {
                 />
               </div>
             </form>
-            <button className="btn btn-primary">Clear Form</button>
+            <button className="btn btn-primary" onClick={props.handleClick}>Clear Form</button>
           </div>
         </div>
 
