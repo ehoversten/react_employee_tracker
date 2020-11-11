@@ -8,9 +8,11 @@ import Employee from './components/Employee';
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Route exact path='/employees' component={Employee} />
-      <Route exact path='/' component={Display} />
+      <Router >
+        <Nav />
+        <Route exact path='/employees' component={Employee} />
+        <Route exact path='/' component={Display} />
+      </Router>
     </div>
   );
 }
