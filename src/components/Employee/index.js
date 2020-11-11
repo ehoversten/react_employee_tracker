@@ -17,7 +17,7 @@ class Employee extends Component {
 
     // When this component mounts, search the Placeholder API for User data
     componentDidMount() {
-        let url = "https://randomuser.me/api/?results=100";
+        let url = "https://randomuser.me/api/?nat=us,gb,de,dk,fr&results=100";
         axios.get(url)
             .then(res => {
                 // test to see what data we get back
